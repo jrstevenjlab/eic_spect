@@ -24,7 +24,7 @@ void plotZc(int Ee = 10, int Ep = 100) {
     // process data from each detector in series
     for(int i=0; i<3; i++) {
         cout<<"Plotting detector: "<<detectors[i].Data()<<endl;
-        file[i] = TFile::Open(Form("outHist/output_%s_%d_%d.root", detectors[i].Data(), Ee, Ep));
+        file[i] = TFile::Open(Form("../outHist/output_%s_%d_%d.root", detectors[i].Data(), Ee, Ep));
     }
     
     TLine ln[3];

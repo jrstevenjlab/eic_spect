@@ -35,7 +35,7 @@ void selector_zc::Begin(TTree * /*tree*/)
    // The tree argument is deprecated (on PROOF 0 is passed).
 
     TString option = GetOption();
-    fOutputFile = new TFile(Form("outHist/output_%s.root",option.Data()),"recreate");
+    fOutputFile = new TFile(Form("../outHist/output_%s.root",option.Data()),"recreate");
     
     hPVsEtaEle = new TH2F("PVsEtaEle", "; #eta; p (GeV)", 120, -1, 5, 100, 0, 20);
     hPVsEtaPos = new TH2F("PVsEtaPos", "; #eta; p (GeV)", 120, -1, 5, 100, 0, 20);
