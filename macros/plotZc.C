@@ -5,7 +5,7 @@
 //  Created by Justin Stevens on 3/18/20.
 //
 
-void plotZc(int Ee = 10, int Ep = 100) {
+void plotZc(int Ee = 10, int Ep = 100, TString sample = "zc") {
 
     TFile *file[3];
     TString detectors[3] = {"beast", "jleic", "ephenix"};
@@ -24,7 +24,7 @@ void plotZc(int Ee = 10, int Ep = 100) {
     // process data from each detector in series
     for(int i=0; i<3; i++) {
         cout<<"Plotting detector: "<<detectors[i].Data()<<endl;
-        file[i] = TFile::Open(Form("../outHist/output_%s_%d_%d.root", detectors[i].Data(), Ee, Ep));
+        file[i] = TFile::Open(Form("../outHist/output_%s_%s_%d_%d.root", sample.Data(), detectors[i].Data(), Ee, Ep));
     }
     
     TLine ln[3];
@@ -58,7 +58,7 @@ void plotZc(int Ee = 10, int Ep = 100) {
             ln[i].Draw("same");
         }
         
-        cc->Print(Form("plots/%s_%d_%d.pdf",name1D[j].Data(),Ee,Ep));
+        cc->Print(Form("plots/%s_%s_%d_%d.pdf",name1D[j].Data(),sample.Data(),Ee,Ep));
     }
             
     for(int j=0; j<num2D; j++) {
@@ -82,7 +82,7 @@ void plotZc(int Ee = 10, int Ep = 100) {
             th1->Draw("same"); th2->Draw("same");
         }
         
-        dd->Print(Form("plots/%s_%d_%d.pdf",name2D[j].Data(),Ee,Ep));
+        dd->Print(Form("plots/%s_%s_%d_%d.pdf",name2D[j].Data(),sample.Data(),Ee,Ep));
     }
         
     return;

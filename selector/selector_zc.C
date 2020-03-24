@@ -46,8 +46,8 @@ void selector_zc::Begin(TTree * /*tree*/)
     hDeltaPOverPVsEtaPion = new TH2F("DeltaPOverPVsEtaPion", "; #eta; #Delta p/p", 120, -1, 5, 100, -0.1, 0.1);
     
     
-    hMassElePos = new TH1F("MassElePos", "; M_{ee} (GeV)", 100, 2.0, 3.5);
-    hMassJpsiPion = new TH1F("MassJpsiPion", "; M_{J/#psi#pi} (GeV)", 100, 3.0, 4.5);
+    hMassElePos = new TH1F("MassElePos", "; M_{ee} (GeV)", 350, 0.0, 3.5);
+    hMassJpsiPion = new TH1F("MassJpsiPion", "; M_{J/#psi#pi} (GeV)", 450, 0.0, 4.5);
 }
 
 void selector_zc::SlaveBegin(TTree * /*tree*/)
@@ -86,32 +86,37 @@ Bool_t selector_zc::Process(Long64_t entry)
     TLorentzVector P4Pion, P4Ele, P4Pos, P4Jpsi, P4Zc;
     TLorentzVector P4PionThrown, P4EleThrown, P4PosThrown, P4JpsiThrown, P4ZcThrown;
 
-    int ndetected = 0;
+    int ndetected_ele = 0;
+    int ndetected_pos = 0;
+    int ndetected_pion = 0;
     
     for(int i=0; i<evt_prt_count; i++) {
         //cout<<pdg[i]<<endl;
         TLorentzVector P4, P4Thrown;
         P4.SetXYZM(px[i],py[i],pz[i],m[i]);
         P4Thrown.SetXYZM(smear_orig_px[i],smear_orig_py[i],smear_orig_pz[i],m[i]);
-        if(pdg[i] == 11) {
-            ndetected++;
-            P4Ele = P4;
-            P4EleThrown = P4Thrown;
-        }
-        if(pdg[i] == -11) {
-            ndetected++;
-            P4Pos = P4;
-            P4PosThrown = P4Thrown;
+        if(abs(pdg[i]) == 11) {
+            if(charge[i] == -1) {
+                ndetected_ele++;
+                P4Ele = P4;
+                P4EleThrown = P4Thrown;
+            }
+            if(charge[i] == +1) {
+                ndetected_pos++;
+                P4Pos = P4;
+                P4PosThrown = P4Thrown;
+            }
         }
         if(pdg[i] == 211) {
-            ndetected++;
+            ndetected_pion++;
             P4Pion = P4;
             P4PionThrown = P4Thrown;
         }
     }
     
     // require 3 detected
-    if(ndetected < 3) return kTRUE;
+    if(ndetected_ele < 1 || ndetected_pos < 1 || ndetected_pion < 1)
+        return kTRUE;
     
     // observed lab frame distributions
     hPVsEtaEle->Fill(P4Ele.Eta(),P4Ele.Vect().Mag());
@@ -131,6 +136,7 @@ Bool_t selector_zc::Process(Long64_t entry)
     P4Zc = P4Jpsi + P4Pion;
     
     hMassElePos->Fill(P4Jpsi.M());
+    if(fabs(P4Jpsi.M() - 3.1) > 0.2) return kTRUE;
     hMassJpsiPion->Fill(P4Zc.M());
     
    return kTRUE;
