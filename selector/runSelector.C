@@ -10,7 +10,7 @@ void runSelector() {
     TFile *file;
     TTree *tree;
     TString sample[2] = {"zc","pythia"};
-    TString detectors[3] = {"jleic", "beast", "ephenix"};
+    TString detectors[4] = {"nosm", "smjleic", "smbeast", "smephenix"};
     TString energies[4] = {"5_41", "5_100", "10_100", "18_275"};
     
     // process data from each detector in series
@@ -20,7 +20,7 @@ void runSelector() {
                 TString input_name = energies[j];
                 
                 cout<<"Processing detector: "<<detectors[i].Data()<<" at "<<input_name.Data()<<endl;
-                file = TFile::Open(Form("../outTree/%s_sm%s_%s.root", sample[k].Data(), detectors[i].Data(), input_name.Data()));
+                file = TFile::Open(Form("../outTree/%s_%s_%s.root", sample[k].Data(), detectors[i].Data(), input_name.Data()));
                 if(!file) continue;
                 
                 gDirectory->cd("events");

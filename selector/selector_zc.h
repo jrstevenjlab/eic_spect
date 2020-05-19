@@ -134,6 +134,7 @@ public :
     TH2F *hPVsEtaEle, *hPVsEtaPos, *hPVsEtaPion;
     TH2F *hDeltaPOverPVsEtaEle, *hDeltaPOverPVsEtaPos, *hDeltaPOverPVsEtaPion;
     TH1F *hMassElePos, *hMassJpsiPion;
+    TH2F *hMapEle, *hMapPos, *hMapPion;
     
    selector_zc(TTree * /*tree*/ =0) : fChain(0) { }
    virtual ~selector_zc() { }
