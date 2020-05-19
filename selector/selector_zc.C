@@ -45,7 +45,10 @@ void selector_zc::Begin(TTree * /*tree*/)
     hDeltaPOverPVsEtaPos = new TH2F("DeltaPOverPVsEtaPos", "; #eta; #Delta p/p", 120, -1, 5, 100, -0.1, 0.1);
     hDeltaPOverPVsEtaPion = new TH2F("DeltaPOverPVsEtaPion", "; #eta; #Delta p/p", 120, -1, 5, 100, -0.1, 0.1);
     
-    hPolarMapEle = new TH2F("PolarMapEle", "; p ; #theta (deg)", 100, 0, 100, 360, 0, 360);
+    hMapEle = new TH2F("MapEle", "; #theta (rad); momentum (GeV)", 720, 0, 2*TMath::Pi(), 40, 0, 80);
+    hMapPos = new TH2F("MapPos", "; #theta (rad); momentum (GeV)", 720, 0, 2*TMath::Pi(), 40, 0, 80);
+    hMapPion = new TH2F("MapPion", "; #theta (rad); momentum (GeV)", 720, 0, 2*TMath::Pi(), 40, 0, 80);
+    
     hMassElePos = new TH1F("MassElePos", "; M_{ee} (GeV)", 350, 0.0, 3.5);
     hMassJpsiPion = new TH1F("MassJpsiPion", "; M_{J/#psi#pi} (GeV)", 450, 0.0, 4.5);
 }
@@ -126,6 +129,11 @@ Bool_t selector_zc::Process(Long64_t entry)
     // observed thrown maps
     hPolarMapEle->Fill(P4Ele.Vect().Mag(),P4Ele.Theta());
     
+    if(P4Ele.Theta() < 3.0) // skip beam electrons
+        hMapEle->Fill(P4Ele.Theta(), P4Ele.Vect().Mag());
+    hMapPos->Fill(P4Pos.Theta(), P4Pos.Vect().Mag());
+    hMapPion->Fill(P4Pion.Theta(), P4Pion.Vect().Mag());
+    
     // single particle resolutions
     double DeltaPOverP_Ele = (P4Ele.Vect().Mag() - P4EleThrown.Vect().Mag())/P4EleThrown.Vect().Mag();
     double DeltaPOverP_Pos = (P4Pos.Vect().Mag() - P4PosThrown.Vect().Mag())/P4PosThrown.Vect().Mag();
@@ -163,6 +171,8 @@ void selector_zc::Terminate()
     hDeltaPOverPVsEtaEle->Write();
     hDeltaPOverPVsEtaPos->Write();
     hDeltaPOverPVsEtaPion->Write();
+    
+    hMapEle->Write(); hMapPos->Write(); hMapPion->Write();
     
     hMassElePos->Write();
     hMassJpsiPion->Write();

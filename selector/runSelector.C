@@ -10,7 +10,7 @@ void runSelector(TString input_dir = "/volatile/halld/home/jrsteven/eic/eic_spec
     TFile *file;
     TTree *tree;
     TString sample[2] = {"zc","pythia"};
-    TString detectors[3] = {"jleic", "beast", "ephenix"};
+    TString detectors[4] = {"nosm", "smjleic", "smbeast", "smephenix"};
     TString energies[4] = {"5_41", "5_100", "10_100", "18_275"};
     
     // process data from each detector in series
