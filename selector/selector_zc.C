@@ -45,7 +45,7 @@ void selector_zc::Begin(TTree * /*tree*/)
     hDeltaPOverPVsEtaPos = new TH2F("DeltaPOverPVsEtaPos", "; #eta; #Delta p/p", 120, -1, 5, 100, -0.1, 0.1);
     hDeltaPOverPVsEtaPion = new TH2F("DeltaPOverPVsEtaPion", "; #eta; #Delta p/p", 120, -1, 5, 100, -0.1, 0.1);
     
-    
+    hPolarMapEle = new TH2F("PolarMapEle", "; p ; #theta (deg)", 100, 0, 100, 360, 0, 360);
     hMassElePos = new TH1F("MassElePos", "; M_{ee} (GeV)", 350, 0.0, 3.5);
     hMassJpsiPion = new TH1F("MassJpsiPion", "; M_{J/#psi#pi} (GeV)", 450, 0.0, 4.5);
 }
@@ -122,6 +122,9 @@ Bool_t selector_zc::Process(Long64_t entry)
     hPVsEtaEle->Fill(P4Ele.Eta(),P4Ele.Vect().Mag());
     hPVsEtaPos->Fill(P4Pos.Eta(),P4Pos.Vect().Mag());
     hPVsEtaPion->Fill(P4Pion.Eta(),P4Pion.Vect().Mag());
+
+    // observed thrown maps
+    hPolarMapEle->Fill(P4Ele.Vect().Mag(),P4Ele.Theta());
     
     // single particle resolutions
     double DeltaPOverP_Ele = (P4Ele.Vect().Mag() - P4EleThrown.Vect().Mag())/P4EleThrown.Vect().Mag();
