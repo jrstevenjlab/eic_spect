@@ -12,6 +12,7 @@
 #include <TChain.h>
 #include <TFile.h>
 #include <TSelector.h>
+#include <TRandom3.h>
 
 // Header file for the classes stored in the TTree if any.
 
@@ -19,7 +20,9 @@ class selector_zc : public TSelector {
 public :
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    TFile          *fOutputFile;
-    
+   TRandom3       *gRandom;
+   int            ievent;
+
 // Fixed size dimensions of array or collections stored in the TTree if any.
 
    // Declaration of leaf types
@@ -134,7 +137,12 @@ public :
     TH2F *hPVsEtaEle, *hPVsEtaPos, *hPVsEtaPion;
     TH2F *hDeltaPOverPVsEtaEle, *hDeltaPOverPVsEtaPos, *hDeltaPOverPVsEtaPion;
     TH1F *hMassElePos, *hMassJpsiPion;
+    TH1F *hMassElePosAll, *hMassJpsiPionAll;
+    TH1F *hMassElePosSupressPi, *hMassJpsiPionSupressPi;
+    TH1F *hMassElePos1sig, *hMassElePos2sig, *hMassElePos3sig;
+    TH1F *hMassJpsiPion1sig, *hMassJpsiPion2sig, *hMassJpsiPion3sig;
     TH2F *hMapEle, *hMapPos, *hMapPion;
+    TH2F *hE2pVsEtaNegative, *hE2pVsEtaPositive;
     
    selector_zc(TTree * /*tree*/ =0) : fChain(0) { }
    virtual ~selector_zc() { }
