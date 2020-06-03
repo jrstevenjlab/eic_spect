@@ -2,8 +2,11 @@
 # https://eic.github.io/software/escalate_singularity_1.html
 
 # There are two main options:
-# a) Quickstart: Load the latest pre-built container on CVMFS
+# a) Quickstart: Load the latest pre-built container on ifarm
 module load singularity
+singularity shell --cleanenv /volatile/halld/home/jrsteven/singularity/electronioncollider/escalate:latest
+
+Note: in the future a CVMFS version will be available, but for now it is not up to date, so you'll get a crash when you run eic-smear 
 singularity shell --cleanenv /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest
 
 # b) Build your own singularity container that you can modify.  This requires a few installation steps outlined below ->
@@ -20,7 +23,7 @@ singularity build --sandbox electronioncollider/escalate:latest docker://electro
 
 # 2) Load singularity container on JLab ifarm
 module load singularity
-singularity shell --cleanenv electronioncollider/escalate:latest /volatile/halld/home/$USER/singularity/escalate:latest/
+singularity shell --cleanenv /volatile/halld/home/$USER/singularity/electronioncollider/escalate:latest
 
 # 3) Once inside container, setup environment
 Singularity> source /etc/profile
