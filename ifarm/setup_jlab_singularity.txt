@@ -3,8 +3,8 @@
 
 # There are two main options:
 # a) Quickstart: Load the latest pre-built container on CVMFS
-module load
-singularity shell --cleanenv electronioncollider/escalate:latest /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest/
+module load singularity
+singularity shell --cleanenv /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest
 
 # b) Build your own singularity container that you can modify.  This requires a few installation steps outlined below ->
 

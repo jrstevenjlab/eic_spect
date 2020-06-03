@@ -1,4 +1,4 @@
-ep_lowQ2.18_275.txt ! output file name
+ep_lowQ2_18_275.txt ! output file name
 11                ! lepton beam type
 275, 18           ! proton and electron beam energy
 10000000,100       ! Number of events 

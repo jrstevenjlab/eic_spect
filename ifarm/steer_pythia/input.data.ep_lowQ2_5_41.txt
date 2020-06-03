@@ -1,6 +1,6 @@
-ep_lowQ2.10_100.txt ! output file name
+ep_lowQ2_5_41.txt ! output file name
 11                ! lepton beam type
-100, 10           ! proton and electron beam energy
+41, 5           ! proton and electron beam energy
 10000000,100       ! Number of events 
 1e-09, 0.99       ! xmin and xmax
 1e-09,1.00        ! ymin and ymax 
