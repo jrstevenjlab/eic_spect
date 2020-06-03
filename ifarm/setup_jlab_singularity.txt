@@ -1,0 +1,27 @@
+# Steps to setup EIC software (ESCalate) at JLab, more info at
+# https://eic.github.io/software/escalate_singularity_1.html
+
+# There are two main options:
+# a) Quickstart: Load the latest pre-built container on CVMFS
+module load
+singularity shell --cleanenv electronioncollider/escalate:latest /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest/
+
+# b) Build your own singularity container that you can modify.  This requires a few installation steps outlined below ->
+
+# After following a) or b) your environment should be setup to run with the software inside the Singularity container.  Most of the libraries can be found at the path /container/app/ if you want to look at or modify the code (e.g. eic-smear).
+
+######  Steps to build your own singularity container ######
+# 1) Do these commands one time only (the last command takes ~3 hours)
+mkdir -p /volatile/halld/home/$USER/singularity
+cd /volatile/halld/home/$USER/singularity
+module load singularity
+setenv SINGULARITY_CACHEDIR "."
+singularity build --sandbox electronioncollider/escalate:latest docker://electronioncollider/escalate:latest
+
+# 2) Load singularity container on JLab ifarm
+module load singularity
+singularity shell --cleanenv electronioncollider/escalate:latest /volatile/halld/home/$USER/singularity/escalate:latest/
+
+# 3) Once inside container, setup environment
+Singularity> source /etc/profile
+
