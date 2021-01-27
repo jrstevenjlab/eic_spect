@@ -2,15 +2,16 @@
 # https://eic.github.io/software/escalate_singularity_1.html
 
 # There are two main options:
-# a) Quickstart: Load the latest pre-built container on ifarm
+# a) Quickstart: Load the latest pre-built container from CVMFS
 module load singularity
-singularity shell --cleanenv /volatile/halld/home/jrsteven/singularity/electronioncollider/escalate:latest
-
-Note: in the future a CVMFS version will be available, but for now it is not up to date, so you'll get a crash when you run eic-smear 
 singularity shell --cleanenv /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest
+
+# Once inside container, setup environment with
+Singularity> source /etc/profile
 
 # b) Build your own singularity container that you can modify.  This requires a few installation steps outlined below ->
 
+##################################
 # After following a) or b) your environment should be setup to run with the software inside the Singularity container.  Most of the libraries can be found at the path /container/app/ if you want to look at or modify the code (e.g. eic-smear).
 
 ######  Steps to build your own singularity container ######
