@@ -1,14 +1,15 @@
 
 INDIR=/work/halld2/home/jrsteven/eic/eic_spect/ifarm/steer_pythia/
-OUTDIR=/volatile/halld/home/jrsteven/eic/eic_spect/outTree/
+OUTDIR=/volatile/halld/home/jrsteven/eic/eic_spect/outPythiaText/
 LOGDIR=$OUTDIR/log/
+ENERGY=5_100
 mkdir -p $LOGDIR
 
 cd $OUTDIR
-pythiaeRHIC < $INDIR/input.data.ep_lowQ2_5_41.txt   > $LOGDIR/out5_41.10M.log
-pythiaeRHIC < $INDIR/input.data.ep_lowQ2_5_100.txt  > $LOGDIR/out5_100.10M.log
-pythiaeRHIC < $INDIR/input.data.ep_lowQ2_10_100.txt > $LOGDIR/out10_100.10M.log
-pythiaeRHIC < $INDIR/input.data.ep_lowQ2_18_275.txt > $LOGDIR/out18_275.10M.log
+for file in {0..9}
+do
+  pythiaeRHIC < $INDIR/input.data.ep_lowQ2_${ENERGY}_$file.txt   > $LOGDIR/out$ENERGY.10M_$file.log &
+done
 
 cd /work/halld2/home/jrsteven/eic/eic_spect/ifarm/
 
