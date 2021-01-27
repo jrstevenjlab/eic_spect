@@ -3,9 +3,7 @@
 
 from pyjano.jana import Jana
 
-#file_name = "zc_piexch_elspectro" # Z_C(3900) in HepMC3 format
-#file_name = "x3872_elspectro" # X(3872) in HepMC3 format
-file_name = "vectorJpsiPiPi_elspectro" # Y(4220) in HepMC3 format
+file_name = "jpac_Zc3900_low" # Z_C(3900) in HepMC3 format
 
 detector_name = "handbook" # Handbook detector specificiations
 energies = ["5_41","5_100","10_100","18_275"] # Eelectron_Eproton
