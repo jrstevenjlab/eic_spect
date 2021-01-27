@@ -4,12 +4,12 @@ The scripts in this directory provide the minimum needed to generate XYZ events 
 source build_jlab_elspectro.csh
 
 ## Run example (see elSpectro README)
-cd $ELSPECTRO/examples/
-../bin/elspectro 'EIC_JPAC_nZc_Hists.C("low",5,41,1E33,25)'
+cd $ELSPECTRO/examples/  
+../bin/elspectro 'EIC_JPAC_nZc_Hists.C("low",5,41,1E33,25)'  
 
 ## Open Singularity container 
-module load singularity
-singularity shell --cleanenv /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest
+module load singularity  
+singularity shell --cleanenv /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest  
 
 ## Setup environment:
 source /etc/profile
