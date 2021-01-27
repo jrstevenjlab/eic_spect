@@ -1,8 +1,8 @@
 The scripts in this directory provide the minimum needed to generate Pythia MC events and smear them with eic-smear on the ifarm nodes using a Singularity container.  Signal MC samples can be generated separately and smeared using the same run_eicsmear.py described below.
 
 ## Open Singularity container 
-module load singularity
-singularity shell --cleanenv /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest
+module load singularity  
+singularity shell --cleanenv /cvmfs/eic.opensciencegrid.org/singularity/escalate:latest  
 
 ## Setup environment:
 source /etc/profile
