@@ -1,3 +1,7 @@
+# elSpectro Generator for X, Y, Psi(2S) generated events with decay to J/psi pi+ pi-
+* https://github.com/dglazier/elSpectro
+* Some description in a [recent talk by Derek](https://indico.bnl.gov/event/11669/contributions/50919/attachments/36099/59218/PSQatEICJuly21Glazier.pdf)
+
 # ATHENA software 
 * documented here https://ip6soft.readthedocs.io/en/latest/index.html
 * best to use [container](https://ip6soft.readthedocs.io/en/latest/overview/containers.html) if you want to use libraries.
