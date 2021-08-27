@@ -1,6 +1,7 @@
 # ATHENA software 
 * documented here https://ip6soft.readthedocs.io/en/latest/index.html
-* best to use signularity container to obtain necessary libraries to analyze ROOT trees
+* best to use [container](https://ip6soft.readthedocs.io/en/latest/overview/containers.html) if you want to use libraries.
+* singularity available on JLab and BNL clusters, but can install locally as well (I haven't tried)
 
 # some preliminary data files can be found at
 * https://dtn01.sdcc.bnl.gov:9000/minio/eictest/ATHENA/RECO/master/SPECTROSCOPY/
