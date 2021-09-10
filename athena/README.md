@@ -21,7 +21,7 @@
 https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
 * plot mass of J/psi pi+ pi- from generated and reconstructed particles
 
-# Exercises (sorry these are very late)
+# Exercises (sorry these are very late, posted on 9/10/21)
 ## Produce kinematic histograms of both J/psi decay leptons and charged pions
 * momentum vs pseudorapidity eta
 * momentum vs polar angle theta
