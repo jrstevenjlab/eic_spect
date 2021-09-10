@@ -30,6 +30,6 @@ https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
 ## Study effieciencies by taking ratio of reconstructed/generated for individual final state particles
 * efficiency vs momentum, pseudorapidity, phi
 ## Study mass resolution for J/psi
-* fill histogram with reconstructed - generated mass for decay leptons
-* fit histogram to obtain mass resolution for J/psi
+* fill histogram with reconstructed - generated mass for decay J/psi -> e+e-
+  * fit histogram to obtain mass resolution for J/psi
 * bonus points: study dependence of mass resolution on momentum or pseudorapidity of lepton tracks, 
