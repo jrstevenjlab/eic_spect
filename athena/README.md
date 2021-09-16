@@ -35,7 +35,7 @@ https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
   * fit histogram to obtain mass resolution for J/psi
 * bonus points: study dependence of mass resolution on momentum or pseudorapidity of lepton tracks, 
 
-# Exercises (2nd round):
+# Exercises (2nd round): produce histograms for both psi(2s) and X(3872) files using all available files
 ## Study efficiencies and mass resolution with additional requirements
 * add a cut on transverse momentum > 0.1 GeV and |eta| < 3 for all tracks
 * plot the efficiency and mass resolution for events surviving these cuts
