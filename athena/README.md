@@ -29,7 +29,7 @@ https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
 * azimuthal angle phi vs eta
 ## Study effieciencies by taking ratio of reconstructed/generated for individual final state particles
 * efficiency vs momentum, transverse momentum, pseudorapidity, phi
-* plot efficiencies on lineary y-axis with range efficiency = 0.8 - 1.1
+* plot efficiencies on lineary y-axis with range efficiency = 0.0 - 1.1
 ## Study mass resolution for J/psi
 * fill histogram with difference: reconstructed mass - generated mass for decay J/psi -> e+e-
   * fit histogram to obtain mass resolution for J/psi
@@ -39,3 +39,4 @@ https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
 ## Study efficiencies and mass resolution with additional requirements
 * add a cut on transverse momentum > 0.1 GeV and |eta| < 3 for all tracks
 * plot the efficiency and mass resolution for events surviving these cuts
+  * plot efficiencies on lineary y-axis with range efficiency = 0.0 - 1.1
