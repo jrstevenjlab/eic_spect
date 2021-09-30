@@ -30,6 +30,7 @@ https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
 ## Study effieciencies by taking ratio of reconstructed/generated for individual final state particles
 * efficiency vs momentum, transverse momentum, pseudorapidity, phi
 * plot efficiencies on lineary y-axis with range efficiency = 0.0 - 1.1
+  * check the errors on the efficiency are computed correctly using the sum of weights squared (TH1::Sumw2())
 ## Study mass resolution for J/psi
 * fill histogram with difference: reconstructed mass - generated mass for decay J/psi -> e+e-
   * fit histogram to obtain mass resolution for J/psi
