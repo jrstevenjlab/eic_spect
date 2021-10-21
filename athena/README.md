@@ -34,7 +34,9 @@ https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
 ## Study mass resolution for J/psi
 * fill histogram with difference: reconstructed mass - generated mass for decay J/psi -> e+e-
   * fit histogram to obtain mass resolution for J/psi
-* bonus points: study dependence of mass resolution on momentum or pseudorapidity of lepton tracks, 
+* bonus points: study dependence of mass resolution on momentum or pseudorapidity of lepton or pion tracks
+  * fill 2D histogram with difference: reconstructed mass - generated mass vs momentum or pseudorapidity
+  * fit slices of 2D histograms and plot mass resolution (sigma) vs momentum or pseudorapidity
 
 # Exercises (2nd round): produce histograms for both psi(2s) and X(3872) files using all available files
 ## Study efficiencies and mass resolution with additional requirements
