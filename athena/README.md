@@ -7,8 +7,9 @@
 * best to use [container](https://ip6soft.readthedocs.io/en/latest/overview/containers.html) if you want to use libraries.
 * singularity available on JLab and BNL clusters, but can install locally as well (I haven't tried)
 
-# some preliminary data files can be found at
-* https://dtn01.sdcc.bnl.gov:9000/minio/eictest/ATHENA/RECO/master/SPECTROSCOPY/
+# Some preliminary data files can be found at
+* Version 0: eictest/ATHENA/RECO/master/SPECTROSCOPY/
+* Version 1 (Nov 4): eictest/ATHENA/RECO/canyonlands-v1.2/EXCLUSIVE/SPECTROSCOPY_ABCONV
 * however, these files are changing regulary, so not guaranteed to always be available...
 
 # openS3.C 
@@ -36,7 +37,9 @@ https://eic.phy.anl.gov/tutorials/eic_tutorial/part5/reconstruction_analysis
   * fit histogram to obtain mass resolution for J/psi
 * bonus points: study dependence of mass resolution on momentum or pseudorapidity of lepton or pion tracks
   * fill 2D histogram with difference: reconstructed mass - generated mass vs momentum or pseudorapidity
-  * fit slices of 2D histograms and plot mass resolution (sigma) vs momentum or pseudorapidity
+  * plot mass resolution (sigma) vs momentum or pseudorapidity:
+    * fit slices of 2D histograms and plot mass resolution (sigma) vs momentum or pseudorapidity
+    * compute standard deviation directly from histogram slices vs momentum or pseudorapidity
 
 # Exercises (2nd round): produce histograms for both psi(2s) and X(3872) files using all available files
 ## Study efficiencies and mass resolution with additional requirements
